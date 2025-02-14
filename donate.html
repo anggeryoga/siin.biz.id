@@ -213,20 +213,20 @@
             <p>Terimakasih yang sudah ikut berdonasi!</p>
         </div>
 
-        <input type="hidden" id="qrisInput" value="00020101021126710019ID.CO.CIMBNIAGA.WWW011893600022000040943502150000083009010470303UMI51450015ID.OR.QRNPG.WWW0215ID10221659161000303UMI5204599953033605802ID5914MITRABL*5007216006JEPARA61055941162120708M006057163042A1F">
+        <input type="hidden" id="qrisInput" value="00020101021126610014COM.GO-JEK.WWW01189360091432840999140210G2840999140303UMI51440014ID.CO.QRIS.WWW0215ID10253780771980303UMI5204549953033605802ID5916SIINMEDIA, PCNGN6006JEPARA61055946262070703A01630456FE">
 
         <div class="form-group">
             <label>Nominal<span class="required">*</span></label>
             <input type="number" 
                    id="nominalInput" 
                    placeholder="Ketik jumlah dukungan"
-                   min="1000"
-                   step="1000"
+                   min="0"
+                   step="1"
                    onkeypress="return event.charCode >= 48 && event.charCode <= 57">
         </div>
 
         <div class="amount-info">
-            <span class="min-amount">Minimum: Rp1.000</span>
+            <span class="min-amount">Minimum: Rp0</span>
             <span class="tts-amount">TTS: Rp100.000</span>
         </div>
 
@@ -288,9 +288,9 @@
         // Validasi input nominal
         nominalInput.addEventListener('input', function(e) {
             let value = this.value.replace(/\D/g, '');
-            if (value && value < 1000) {
+           /* if (value && value < 1000) {
                 value = 1000;
-            }
+            }*/
             this.value = value;
         });
 
@@ -298,11 +298,11 @@
             const qrisInput = document.getElementById('qrisInput').value.trim();
             const nominal = parseInt(nominalInput.value.trim());
 
-            if (!nominal || nominal < 1000) {
+           /* if (!nominal || nominal < 1000) {
                 alert('Minimal nominal adalah Rp1.000');
                 nominalInput.value = 1000;
                 return;
-            }
+            }*/
 
             const qrisDinamis = makeString(qrisInput, { nominal: nominal });
             const qrcodeElement = document.getElementById('qrcode');
